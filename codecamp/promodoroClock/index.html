@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <title>promodoro clock</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  crossorigin="anonymous">
+
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  </head>
+
+  <style>
+
+  html, body {
+        height: 100%;
+        min-height: 100%;
+
+        }
+
+        body {
+        font: 15px arial;
+        background-color:  #373F51;
+        color: #DFBBB1;
+
+        }
+
+        .wrapper {
+        height: 100%;
+        min-height: 100%;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        }
+
+        .wrapper div {
+        padding: 40px;
+        border: 0px solid rgba(0, 0, 0, .3)
+        }
+
+        #clock{
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 4px solid #008DD5
+        }
+
+        input{
+
+          background-color: #373F51;
+          border: none;
+          font-size: 28px;
+          text-align:center
+
+        }
+
+  </style>
+
+
+
+
+
+  <body>
+
+<div class="container">
+
+      <div class="wrapper">
+          <div class="box">
+            <div class="row" >
+              <div class="col-md-6 col-sm-6">
+                <p style="text-align:center">breakLength</p>
+                <input type="number" name="" value="5">
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <p style="text-align:center">SessionLength</p>
+                <input type="number" name="" value="25">
+              </div>
+            </div>
+            <div id='clock' style="margin-left:auto;margin-right:auto;">
+
+                    <div id="time-left" style="border:none;text-align:center;">
+                        <h2>12:00</h2>
+                    </div>
+                    <div style="border:none;text-align:center;">
+                      <i class="fa fa-play" aria-hidden="true" style="font-size:50px"></i>
+                    </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div>
+
+      </div>
+</div>
+
+      <script>
+
+
+        $(document).ready(function(){
+
+
+          var time = 0;
+
+          var intervalId;
+
+
+          $('#form1').submit(function(e) {
+                e.preventDefault();
+                time =  $('#interval').val();
+
+                console.log("breakLength : " + time);
+               intervalId = setInterval(function(){
+                     if(time > 0) {
+                          time -= 1;
+                          $('#breakLength').text(time);
+                          /* your code goes here */
+                     } else {
+                          clearInterval(intervalId);
+                          $('#breakLength').text('overtime');
+                          console.log('overtime');
+                     }
+                }, 1000);
+
+
+
+              });
+
+
+        });
+
+
+
+
+      </script>
+
+
+
+  </body>
+
+
+
+
+
+
+
+</html>

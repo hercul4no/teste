@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>One Page Navigation CSS Menu</title>
+<!-- JQuery -->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<meta name="description" content="One page navigation with pure CSS">
+<meta property="og:url" content="http://codepen.io/hrtzt/details/NPZKRN">
+<meta property="og:image" content="https://pbs.twimg.com/media/CCNJN_XUMAAJSzU.jpg:large">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css'>
+
+      <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      html, body, .page {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -webkit-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -moz-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -o-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  color: #fff;
+  overflow: hidden;
+}
+
+* {
+  /*font-family: 'open sans', 'lato', 'helvetica', sans-serif;
+  */
+  font-family: 'Andale Mono', 'monospace', 'helvetica', serif;
+
+}
+
+.page {
+  position: absolute;
+}
+
+#p1 {
+  left: 0;
+}
+
+#p2, #p3, #p4, #p5 {
+  left: 200%;
+}
+
+#p1 { background: black; }
+#p2 { background: #B0A3D4; }
+#p3 { background: #7D80DA; }
+#p4 { background: deeppink; }
+#p5 { background: rebeccapurple; }
+
+#t2:target #p2,
+#t3:target #p3,
+#t4:target #p4,
+#t5:target #p5 {
+  transform: translateX(-190%);
+  -webkit-transform: translateX(-190%);
+  -moz-transform: translateX(-190%);
+  -o-transform: translateX(-190%);
+  transition-delay: .4s !important;
+}
+
+#t2:target #p1,
+#t3:target #p1,
+#t4:target #p1,
+#t5:target #p1{
+  background: black;
+}
+
+#t2:target #p1 .icon,
+#t3:target #p1 .icon,
+#t4:target #p1 .icon,
+#t5:target #p1 .icon {
+  -webkit-filter: blur(3px);
+}
+
+.icon {
+  color: #fff;
+  font-size: 32px;
+  display: block;
+}
+
+ul .icon:hover {
+  opacity: 0.5;
+}
+
+.page .icon .title {
+  line-height: 2;
+}
+
+#t2:target ul .icon,
+#t3:target ul .icon,
+#t4:target ul .icon,
+#t5:target ul .icon{
+  transform: scale(.6);
+  -webkit-transform: scale(.6);
+  -moz-transform: scale(.6);
+  -o-transform: scale(.6);
+  transition-delay: .25s;
+}
+
+#t2:target #dos,
+#t3:target #tres,
+#t4:target #cuatro,
+#t4:target #cinco {
+  transform: scale(1.2) !important;
+  -webkit-transform: scale(1.2) !important;
+  -moz-transform: scale(1.2) !important;
+  -o-transform: scale(1.2) !important;
+}
+
+ul {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  height: 280px;
+  width: 10%;
+  padding: 0;
+  text-align: center;
+ }
+
+#menu .icon {
+  margin: 30px 0;
+  transition: all .5s ease-out !important;
+  -webkit-transition: all .5s ease-out;
+  -moz-transition: all .5s ease-out;
+  -o-transition: all .5s ease-out;
+}
+
+a {
+  text-decoration: none;
+}
+
+.title, .hint {
+  display: block;
+}
+
+.title {
+  font-size: 38px;
+}
+
+.hint {
+  font-size: 13px;
+}
+
+#p4 .hint {
+  display: inherit !important;
+}
+
+.hint a {
+  color: yellow;
+  transition: all 250ms ease-out;
+  -webkit-transition: all 250ms ease-out;
+  -moz-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+}
+
+.hint a:hover {
+  color: #FFF;
+}
+
+.line-trough {
+  text-decoration: line-through;
+}
+
+.page .icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 10%;
+  left: 0;
+  width: 270px;
+  height: 170px;
+  margin: auto;
+  text-align: center;
+  font-size: 80px;
+  line-height: 1.3;
+  transform: translateX(360%);
+  -webkit-transform: translateX(360%);
+  -moz-transform: translateX(360%);
+  -o-transform: translateX(360%);
+  transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+  -webkit-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+  -moz-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+  -o-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+}
+
+.page#p1 .icon {
+  height: 220px;
+}
+
+.page#p1 .icon {
+  transform: translateX(10%) !important;
+}
+
+#t2:target .page#p2 .icon,
+#t3:target .page#p3 .icon,
+#t4:target .page#p4 .icon,
+#t5:target .page#p5 .icon {
+  transform: translateX(0) !important;
+  -webkit-transform: translateX(0) !important;
+  -moz-transform: translateX(0) !important;
+  -o-transform: translateX(0) !important;
+  transition-delay: 1s;
+}
+
+
+    </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+  <div class="ct" id="t1">
+  <div class="ct" id="t2">
+    <div class="ct" id="t3">
+      <div class="ct" id="t4">
+         <div class="ct" id="t5">
+          <ul id="menu">
+
+
+            <a href="#t1"><li  id="uno"><img src="png2/elevator.png"></li></a>
+            <br />
+            <a href="#t2"><li  id="dos"><img src="png2/1.png"></li></a>
+            <a href="#t3"><li  id="tres"><img src="png2/2.png"></li></a>
+            <a href="#t4"><li  id="cuatro"><img src="png2/3.png"></li></a>
+            <a href="#t5"><li  id="cinco"><img src="png2/4.png"></li></a>
+
+
+
+          </ul>
+          <div class="page" id="p1">
+
+             <section >
+               <span class="title" style="margin-left:380px;margin-top:40px;">
+                 <span class="title" style="margin-left:90px;margin-bottom:10px;">Bem Vindo a Recepção</span>
+                 <video   controls="false">
+                 <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">
+                 </video>
+
+               </section>
+          </div>
+          <div class="page" id="p2">
+            <!--<section class="icon fa fa-keyboard-o">-->
+            <section>
+
+              <h1 align="center">1 Desafio</h1>
+              <div style="margin-left:100px;">
+
+                <h2>Marque somente as opções corretas.</h2>
+                <form method="post" >
+                  <p>
+                    <input type="checkbox" name="qst1" value="qst1" id="check1" />
+                    A cardinalidade é onde fica definido os graus de relação entre duas entidades ou tabelas.
+                  </p>
+                  <p>
+                    <input type="checkbox" name="qst1" value="qst1" id="check2" />
+                    O modelo entidade-relacionamento foi introduzido por Peter Chen em 1976.
+                  </p>
+                  <p>
+                    <input type="checkbox" name="qst1" value="qst1" id="check3" />
+                    Os principais atributos no MER são: descritivos, simples e multivalorados.
+                  </p>
+                  <p>
+                    <input type="checkbox" name="qst1" value="qst1" id="check4" />
+                    A entidade é uma abstração de um ente existente no mundo real.
+                  </p>
+
+                  <p>
+                    <input type="checkbox" name="qst1" value="qst1" id="check5" />
+                    Entidades fracas são entidades que tem existência própria, ou seja, não dependem de outra para existirem.
+                  </p>
+
+
+                  <p>
+                    <input type="checkbox" name="qst1" value="qst1" id="check6" />
+                    Um conjunto de entidades deve ser único na modelagem, ou seja,
+                    em uma modelagem de um sistema <br /> não pode existir dois conjuntos de entidades com o mesmo nome.
+                  </p>
+
+
+                  <p>
+                  <input type="checkbox" name="qst1" value="qst1" id="check7" />
+                  Um relacionamento é uma associação entre duas ou mais entidades.
+                  </p>
+
+                  <p>
+                  <input type="checkbox" name="qst1" value="qst1" id="check8" />
+                  O Atributo multivalorado é composto por outros atributos. Exemplo: Endereço.<br />
+                  Seu conteúdo poderá ser dividido em vários outros atributos, como: Rua, Número, Complemento, Bairro, Cep e Cidade
+                  </p>
+
+                  <!--<input type="submit" style="background-color:green;border-color:green;border-radius:10%;" />-->
+
+                </form>
+                <div class="row" style="margin-top:40px;" id="form1" >
+                  <!--<button class="btn btn-danger col col-md-2 col-md-offset-5">Cancelar</button>-->
+                  <button class="btn btn-primary col-md-10"  id="submit1">Enviar</button>
+                  <a href="#t3" class="btn btn-success col-md-10" style="color:white;"  id="next1" hidden>Enviar</a>
+
+                </div>
+
+              </div>
+
+            </section>
+          </div>
+          <div class="page" id="p3">
+            <section>
+              <h1 align="center">2 Desafio</h1>
+
+              <div style="margin-left:100px;margin-right100px;">
+
+                <h2>Simbologia.</h2>
+                <h4>Segundo anotações de Peter Chen, Associe as simbologias aos seus respectivos nomes</h4>
+
+
+                <div class="row" style="color:black">
+                <div class="col-xs-6 col-md-3" >
+                  <a href="#" class="thumbnail">
+                    <img src="png/relacionamento.png" alt="...">
+                  </a>
+                  <select>
+                    <option value="volvo">Entidade</option>
+                    <option value="saab">Relacionamento</option>
+                    <option value="mercedes">Atributo</option>
+                    <option value="audi">especializacao</option>
+                  </select>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                  <a href="#" class="thumbnail">
+                    <img src="png/entidade.png" alt="...">
+                  </a>
+                  <select>
+                    <option value="volvo">Entidade</option>
+                    <option value="saab">Relacionamento</option>
+                    <option value="mercedes">Atributo</option>
+                    <option value="audi">especializacao</option>
+                  </select>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                  <a href="#" class="thumbnail">
+                    <img src="png/atributo.png" alt="...">
+                  </a>
+                  <select>
+                    <option value="volvo">Entidade</option>
+                    <option value="saab">Relacionamento</option>
+                    <option value="mercedes">Atributo</option>
+                    <option value="audi">especializacao</option>
+                  </select>
+                </div>
+
+              </div>
+              <br />
+              <div class="row" style="color:black">
+              <div class="col-xs-6 col-md-3" >
+                <a href="#" class="thumbnail">
+                  <img src="png/especializacao.png" alt="...">
+                </a>
+                <select>
+                  <option value="volvo">Entidade</option>
+                  <option value="saab">Relacionamento</option>
+                  <option value="mercedes">Atributo</option>
+                  <option value="audi">especializacao</option>
+                </select>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                  <img src="png/entidade.png" alt="...">
+                </a>
+                <select>
+                  <option value="volvo">Entidade</option>
+                  <option value="saab">Relacionamento</option>
+                  <option value="mercedes">Atributo</option>
+                  <option value="audi">especializacao</option>
+                </select>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                  <img src="png/atributo.png" alt="...">
+                </a>
+                <select>
+                  <option value="volvo">Entidade</option>
+                  <option value="saab">Relacionamento</option>
+                  <option value="mercedes">Atributo</option>
+                  <option value="audi">especializacao</option>
+                </select>
+              </div>
+
+            </div>
+
+
+
+
+
+              </div>
+
+
+
+            </section>
+          </div>
+          <div class="page" id="p4">
+            <section class="icon fa fa-dribbble">
+              <span class="title">3º andar</span>
+              <p class="hint">
+                <a href="https://dribbble.com/albertohartzet" target="_blank"></a>
+              </p>
+              <p class="hint"></p>
+            </section>
+          </div>
+          <div class="page" id="p5">
+            <section class="icon fa fa-plus-circle">
+              <span class="title">More</span>
+              <p class="hint">
+                <span>You love one page & CSS only stuff? </span><br/>
+                <a href="http://codepen.io/hrtzt/details/pgXMYb/" target="_blank">check this pen "Pure CSS One page vertical navigation"</a>
+              </p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script>
+
+      $(function($){
+
+        /*Funcção da primeira questão.*/
+        $('#submit1').click(function () {
+
+          if (document.getElementById("check1").checked == true
+              && document.getElementById("check2").checked == true
+              && document.getElementById("check4").checked == true
+              && document.getElementById("check6").checked == true
+              && document.getElementById("check1").checked == true
+              && document.getElementById("check7").checked == true  ) {
+
+
+            console.log("Passou do teste");
+            $('#submit1').removeClass("btn-danger");
+            $('#submit1').addClass("btn-primary");
+            $('#submit1').text("Resposta Correta !");
+            //$('#form1').append("<button class='btn btn-success col-md-10'></button>");
+            $('#next1').show();
+
+
+          }else{
+            console.log("Não passou do teste");
+            $('#submit1').addClass("btn-danger");
+            $('#submit1').text("Tente outra vez");
+          }
+
+
+
+
+
+        })
+
+
+
+
+
+      });
+
+
+
+    </script>
+
+</body>
+</html>

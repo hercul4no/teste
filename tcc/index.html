@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>One Page Navigation CSS Menu</title>
+<!-- JQuery -->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<meta name="description" content="One page navigation with pure CSS">
+<meta property="og:url" content="http://codepen.io/hrtzt/details/NPZKRN">
+<meta property="og:image" content="https://pbs.twimg.com/media/CCNJN_XUMAAJSzU.jpg:large">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" type="text/css" href="css/all-animation.css" />
+
+
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css'>
+
+      <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      html, body, .page {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -webkit-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -moz-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -o-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  color: #fff;
+  overflow: hidden;
+}
+
+* {
+  /*font-family: 'open sans', 'lato', 'helvetica', sans-serif;
+  */
+  font-family: 'Andale Mono', 'monospace', 'helvetica', serif;
+
+}
+
+.page {
+  position: absolute;
+}
+
+#p1 {
+  left: 0;
+}
+
+#p2, #p3, #p4, #p5, #p6, #p7 {
+  left: 200%;
+}
+
+#p1 {
+      background: url(png2/intro.jpeg) no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
+#p2 {
+
+  background: url(png2/rh1.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+#p3 {
+
+  background: url(png2/escritorio2.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+#p4 { background: url(png2/escritorio2a.jpg) no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
+#p5 {
+        background: url(png2/escritorio3.jpg) no-repeat center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+ }
+#p6 {
+
+        background: url(png2/TI2.jpg) no-repeat center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+
+}
+#p7 { background: url(png2/chefe.jpg) no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+
+#t2:target #p2,
+#t3:target #p3,
+#t4:target #p4,
+#t5:target #p5,
+#t6:target #p6,
+#t7:target #p7{
+  transform: translateX(-190%);
+  -webkit-transform: translateX(-190%);
+  -moz-transform: translateX(-190%);
+  -o-transform: translateX(-190%);
+  transition-delay: .4s !important;
+}
+
+#t2:target #p1,
+#t3:target #p1,
+#t4:target #p1,
+#t5:target #p1,
+#t6:target #p1,
+#t7:target #p1
+{
+  background: #B0BEC6;
+}
+
+#t2:target #p1 .icon,
+#t3:target #p1 .icon,
+#t4:target #p1 .icon,
+#t5:target #p1 .icon,
+#t6:target #p1 .icon,
+#t7:target #p1 .icon,
+ {
+  -webkit-filter: blur(3px);
+}
+
+.icon {
+  color: #fff;
+  font-size: 32px;
+  display: block;
+}
+
+ul .icon:hover {
+  opacity: 0.5;
+}
+
+.page .icon .title {
+  line-height: 2;
+}
+
+#t2:target ul .icon,
+#t3:target ul .icon,
+#t4:target ul .icon,
+#t5:target ul .icon
+#t6:target ul .icon
+#t7:target ul .icon{
+  transform: scale(.6);
+  -webkit-transform: scale(.6);
+  -moz-transform: scale(.6);
+  -o-transform: scale(.6);
+  transition-delay: .25s;
+}
+
+#t2:target #dos,
+#t3:target #tres,
+#t4:target #cuatro,
+#t5:target #cinco,
+#t6:target #seis,
+#t7:target #sete
+ {
+  transform: scale(1.2) !important;
+  -webkit-transform: scale(1.2) !important;
+  -moz-transform: scale(1.2) !important;
+  -o-transform: scale(1.2) !important;
+}
+
+ul {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  height: 280px;
+  width: 8%;
+  padding: 0;
+  text-align: center;
+ }
+
+ li{
+
+    margin-bottom: 3px;
+ }
+
+
+#menu .icon {
+  margin: 30px 0;
+  transition: all .5s ease-out !important;
+  -webkit-transition: all .5s ease-out;
+  -moz-transition: all .5s ease-out;
+  -o-transition: all .5s ease-out;
+}
+
+a {
+  text-decoration: none;
+}
+
+.title, .hint {
+  display: block;
+}
+
+.title {
+  font-size: 38px;
+}
+
+.hint {
+  font-size: 13px;
+}
+
+#p4 .hint {
+  display: inherit !important;
+}
+
+.hint a {
+  color: yellow;
+  transition: all 250ms ease-out;
+  -webkit-transition: all 250ms ease-out;
+  -moz-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+}
+
+.hint a:hover {
+  color: #FFF;
+}
+
+.line-trough {
+  text-decoration: line-through;
+}
+
+.page .icon {
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 10%;
+  left: 0;
+  width: 270px;
+  height: 170px;
+  margin: auto;
+  text-align: center;
+  font-size: 80px;
+  line-height: 1.3;
+  transform: translateX(360%);
+  -webkit-transform: translateX(360%);
+  -moz-transform: translateX(360%);
+  -o-transform: translateX(360%);
+  transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+  -webkit-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+  -moz-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+  -o-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+}
+
+.page#p1 .icon {
+  height: 220px;
+}
+
+.page#p1 .icon {
+  transform: translateX(10%) !important;
+
+}
+
+#t2:target .page#p2 .icon,
+#t3:target .page#p3 .icon,
+#t4:target .page#p4 .icon,
+#t5:target .page#p5 .icon,
+#t6:target .page#p6 .icon,
+ {
+  transform: translateX(0) !important;
+  -webkit-transform: translateX(0) !important;
+  -moz-transform: translateX(0) !important;
+  -o-transform: translateX(0) !important;
+  transition-delay: 1s;
+}
+
+
+.iniciar{
+
+      border-radius:50px;
+      width:300px;
+      height:60px;
+      font-size:40px;
+}
+
+
+.question{
+
+  background-color:rgb(000,0,0);opacity:0.9;
+  margin: 0px 150px 100px 80px;
+  border-radius:10px;
+  padding-bottom:10px;
+  margin-top:25px;
+
+}
+
+
+    </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="ct" id="t1">
+  <div class="ct" id="t2">
+    <div class="ct" id="t3">
+      <div class="ct" id="t4">
+         <div class="ct" id="t5">
+           <div class="ct" id="t6">
+              <div class="ct" id="t7">
+
+
+
+              <ul id="life" style="margin-top:55px;text-align: left;margin-left:8px;" hidden>
+                <li  id="life1" style="display: inline;"><img src="png2/diskette.png"></li>
+                <li  id="life2" style="display: inline;"><img src="png2/diskette.png"></li>
+                <li  id="life3" style="display: inline;"><img src="png2/diskette.png"></li>
+                <li  id="life4" style="display: inline;"><img src="png2/diskette.png"></li>
+                <li  id="life5" style="display: inline;"><img src="png2/diskette.png"></li>
+
+              </ul>
+
+              <ul id="menu" hidden>
+                <a href="#t1"><li  id="uno"><img src="png2/elevator.png"></li></a>
+                <br />
+                <a href="#t2"><li  id="dos"><img src="png2/1.png"></li></a>
+                <a href="#t3"><li  id="tres"><img src="png2/2.png"></li></a>
+                <a href="#t4"><li  id="cuatro"><img src="png2/3.png"></li></a>
+                <a href="#t5"><li  id="cinco"><img src="png2/4.png"></li></a>
+                <a href="#t6"><li  id="seis"><img src="png2/5.png"></li></a>
+                <a href="#t7"><li  id="sete"><img src="png2/6.png"></li></a>
+              </ul>
+              <div class="page" id="p1" >
+
+
+                <div id="labelPlay" hidden>
+
+                  <button class="fa fa-play" onclick="playPause()" id="btn-play" style="background-color:green;border-radius:50%;width:100px;height:100px;
+                  position:absolute;z-index: 1;margin-left:86%;margin-top:40%;font-size:40px;"
+                   ></button>
+                </div>
+
+                 <section align="center" class="col-md-12"  >
+
+                   <video  id="video1" style="width:100%;height:700px;left:64px;" autoplay class="col-md-10" hidden>
+                      <source src="videos/principal" type="video/mp4" >
+                   </video>
+
+                      <div class="col-md-offset-5" style="margin-top:18%;">
+                        <h1 id="welcome">BEM VINDO AO GA<b>MER</b></h1>
+                        <h4 id="welcome2">
+                          jogo sobre entidade relacionamento
+                        </h4>
+                         <button id="startGame" class="btn-primary iniciar" >Jogar</button>
+                      </div>
+
+
+
+
+
+                   <!--<span class="title" style="margin-left:380px;margin-top:40px;">
+                     <span class="title" style="margin-left:90px;margin-bottom:10px;">Bem Vindo a Recepção</span>
+
+                   -->
+
+                   </section>
+              </div>
+              <div class="page" id="p2">
+                <!--<section class="icon fa fa-keyboard-o">-->
+                <section  style="">
+                  <div class="col-md-10 question" id="question1" hidden>
+
+
+                  <h1 align="center">1 Desafio</h1>
+                  <div style="margin-left:100px;">
+
+                    <h2>Marque somente as opções corretas.</h2>
+                    <form method="post" >
+                      <p>
+                        <input type="checkbox" name="qst1" value="qst1" id="check1" />
+                        A cardinalidade é onde fica definido os graus de relação entre duas entidades ou tabelas.
+                      </p>
+                      <p>
+                        <input type="checkbox" name="qst1" value="qst1" id="check2" />
+                        O modelo entidade-relacionamento foi introduzido por Peter Chen em 1976.
+                      </p>
+                      <p>
+                        <input type="checkbox" name="qst1" value="qst1" id="check3" />
+                        Os principais atributos no MER são: descritivos, simples e multivalorados.
+                      </p>
+                      <p>
+                        <input type="checkbox" name="qst1" value="qst1" id="check4" />
+                        A entidade é uma abstração de um ente existente no mundo real.
+                      </p>
+
+                      <p>
+                        <input type="checkbox" name="qst1" value="qst1" id="check5" />
+                        Entidades fracas são entidades que tem existência própria, ou seja, não dependem de outra para existirem.
+                      </p>
+
+
+                      <p>
+                        <input type="checkbox" name="qst1" value="qst1" id="check6" />
+                        Um conjunto de entidades deve ser único na modelagem, ou seja,
+                        em uma modelagem de um sistema <br /> não pode existir dois conjuntos de entidades com o mesmo nome.
+                      </p>
+
+
+                      <p>
+                      <input type="checkbox" name="qst1" value="qst1" id="check7" />
+                      Um relacionamento é uma associação entre duas ou mais entidades.
+                      </p>
+
+                      <p>
+                      <input type="checkbox" name="qst1" value="qst1" id="check8" />
+                      O Atributo multivalorado é composto por outros atributos. Exemplo: Endereço.<br />
+                      Seu conteúdo poderá ser dividido em vários outros atributos, como: Rua, Número, Complemento, Bairro, Cep e Cidade
+                      </p>
+
+                      <!--<input type="submit" style="background-color:green;border-color:green;border-radius:10%;" />-->
+
+                    </form>
+
+                    <div class="row" style="margin-top:40px;" id="form1" >
+
+                      <button class="btn btn-primary col-md-10" id="submit1">Enviar</button>
+
+                      <a href="#t3" class="btn btn-success col-md-10" style="color:white;" id="next1"  hidden>Enviar</a>
+
+                    </div>
+
+                  </div>
+                    </div>
+                </section>
+                <div class="col-md-10" align="center" style="margin-top:500px;" >
+                    <button class="btn-success iniciar" id="go1">iniciar</button>
+                </div>
+              </div>
+              <div class="page" id="p3">
+                <section>
+                  <div class="col-md-10 question" id="question2" hidden>
+                  <h1 align="center">2 Desafio</h1>
+
+                  <div style="margin-left:100px;margin-right100px;">
+                    <!--     2 questao     -->
+                    <h2>Simbologia.</h2>
+                    <h4>Segundo anotações de Peter Chen, Associe as simbologias aos seus respectivos nomes</h4>
+
+
+                    <div class="row" style="color:black">
+                    <div class="col-xs-5 col-md-2" >
+                      <a href="#" class="thumbnail">
+                        <img src="png/relacionamento.svg" alt="...">
+                      </a>
+                      <select id="qst1">
+                        <option value="entidade">Entidade</option>
+                        <option value="relacionamento">Relacionamento</option>
+                        <option value="atributo">Atributo</option>
+                        <option value="especializacao">especializacao</option>
+                        <option value="entidadeAssoc">entidade Associativa</option>
+                        <option value="atributoChave">Atributo Chave</option>
+                        <option value="atributoMulti">Atributo Multivalorado</option>
+                        <option value="dependencia">Dependencia</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-5 col-md-2">
+                      <a href="#" class="thumbnail">
+                        <img src="png/entidade2.svg" alt="...">
+                      </a>
+                      <select id="qst2" >
+                        <option value="entidade">Entidade</option>
+                        <option value="relacionamento">Relacionamento</option>
+                        <option value="atributo">Atributo</option>
+                        <option value="especializacao">especializacao</option>
+                        <option value="entidadeAssoc">entidade Associativa</option>
+                        <option value="atributoChave">Atributo Chave</option>
+                        <option value="atributoMulti">Atributo Multivalorado</option>
+                        <option value="dependencia">Dependencia</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-5 col-md-2">
+                      <a href="#" class="thumbnail">
+                        <img src="png/atributo.svg" alt="...">
+                      </a>
+                      <select id="qst3">
+                        <option value="entidade">Entidade</option>
+                        <option value="relacionamento">Relacionamento</option>
+                        <option value="atributo">Atributo</option>
+                        <option value="especializacao">especializacao</option>
+                        <option value="entidadeAssoc">entidade Associativa</option>
+                        <option value="atributoChave">Atributo Chave</option>
+                        <option value="atributoMulti">Atributo Multivalorado</option>
+                        <option value="dependencia">Dependencia</option>
+                      </select>
+                    </div>
+
+                    <!--novo -->
+                    <div class="col-xs-5 col-md-2">
+                      <a href="#" class="thumbnail">
+                        <img src="png/atributoMulti.svg" alt="...">
+                      </a>
+                      <select id="qstNv1">
+                        <option value="entidade">Entidade</option>
+                        <option value="relacionamento">Relacionamento</option>
+                        <option value="atributo">Atributo</option>
+                        <option value="especializacao">especializacao</option>
+                        <option value="entidadeAssoc">entidade Associativa</option>
+                        <option value="atributoChave">Atributo Chave</option>
+                        <option value="atributoMulti">Atributo Multivalorado</option>
+                        <option value="dependencia">Dependencia</option>
+                      </select>
+                    </div>
+                    <!-- fim novo -->
+
+                  </div>
+                  <br />
+                  <div class="row" style="color:black">
+                  <div class="col-xs-5 col-md-2" >
+                    <a href="#" class="thumbnail">
+                      <img src="png/especializacao.svg" alt="...">
+                    </a>
+                    <select id="qst4">
+                      <option value="entidade">Entidade</option>
+                      <option value="relacionamento">Relacionamento</option>
+                      <option value="atributo">Atributo</option>
+                      <option value="especializacao">especializacao</option>
+                      <option value="entidadeAssoc">entidade Associativa</option>
+                      <option value="atributoChave">Atributo Chave</option>
+                      <option value="atributoMulti">Atributo Multivalorado</option>
+                      <option value="dependencia">Dependencia</option>
+                    </select>
+                  </div>
+                  <div class="col-xs-5 col-md-2">
+                    <a href="#" class="thumbnail">
+                      <img src="png/atributoChave.svg" alt="...">
+                    </a>
+                    <select id="qst5">
+                      <option value="entidade">Entidade</option>
+                      <option value="relacionamento">Relacionamento</option>
+                      <option value="atributo">Atributo</option>
+                      <option value="especializacao">especializacao</option>
+                      <option value="entidadeAssoc">entidade Associativa</option>
+                      <option value="atributoChave">Atributo Chave</option>
+                      <option value="atributoMulti">Atributo Multivalorado</option>
+                      <option value="dependencia">Dependencia</option>
+                    </select>
+                  </div>
+
+
+                  <div class="col-xs-5 col-md-2">
+                    <a href="#" class="thumbnail">
+                      <img src="png/entidadeAssoc.svg" alt="...">
+                    </a>
+                    <select id="qst6">
+                      <option value="entidade">Entidade</option>
+                      <option value="relacionamento">Relacionamento</option>
+                      <option value="atributo">Atributo</option>
+                      <option value="especializacao">especializacao</option>
+                      <option value="entidadeAssoc">entidade Associativa</option>
+                      <option value="atributoChave">Atributo Chave</option>
+                      <option value="atributoMulti">Atributo Multivalorado</option>
+                      <option value="dependencia">Dependencia</option>
+                    </select>
+                  </div>
+
+                  <!--novo -->
+                  <div class="col-xs-5 col-md-2">
+                    <a href="#" class="thumbnail">
+                      <img src="png/dependencia.svg" alt="...">
+                    </a>
+                    <select id="qstNv2">
+                      <option value="entidade">Entidade</option>
+                      <option value="relacionamento">Relacionamento</option>
+                      <option value="atributo">Atributo</option>
+                      <option value="especializacao">especializacao</option>
+                      <option value="entidadeAssoc">entidade Associativa</option>
+                      <option value="atributoChave">Atributo Chave</option>
+                      <option value="atributoMulti">Atributo Multivalorado</option>
+                      <option value="dependencia">Dependencia</option>
+                    </select>
+                  </div>
+                  <!-- fim novo -->
+
+
+
+                </div>
+                <div class="row" style="margin-top:40px;" id="form2" >
+                  <!--<button class="btn btn-danger col col-md-2 col-md-offset-5">Cancelar</button>-->
+                  <button class="btn btn-primary col-md-10"  id="submit2">Enviar</button>
+                  <a href="#t4" class="btn btn-success col-md-10" style="color:white;"  id="next2" hidden>Enviar</a>
+
+                </div>
+
+
+
+                  </div>
+
+
+
+                  </div>
+                  <div class="col-md-10" align="center" style="margin-top:500px;" >
+                      <button class="btn-success iniciar" id="go2">iniciar</button>
+                  </div>
+
+                </section>
+              </div>
+              <div class="page" id="p4">
+                <section>
+                  <div class="col-md-10 question" id="question3" hidden>
+                    <h1 align="center">3 Desafio</h1>
+                    <h2>Coloque a cardinalidade correta para as entidades, 1 ou N.</h2>
+
+                  <div class="col-md-12">
+                    <div style="">
+                      <div class="col-md-4">
+                        <div style="background-color:white;color:black;width:100%;height:100%;opacity:1;">
+                          <h1 align="center">Funcionario</h1>
+                        </div>
+                      </div>
+                      <div class="col-md-4" >
+                        <input id="a1"align="left" style="width:30px;color:black;" />
+                        <input id="a2" align="left" style="width:30px;color:black;position:absolute;margin-left:75%;" />
+                        <img style="height:150px;margin-left:60px;margin-top:-20px;" src="png/possui.png"  />
+
+                      </div>
+                      <div class="col-md-4">
+                        <div style="background-color:white;color:black;width:100%;height:100%">
+                          <h1 align="center">Cargo</h1>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-md-12">
+                    <div class="col-md-4">
+                      <div style="background-color:white;color:black;width:100%;height:100%;opacity:1;">
+                        <h1 align="center">Recepcionista</h1>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <input id="b1" align="left" style="width:30px;color:black;" />
+                      <input id="b2" align="left" style="width:30px;color:black;position:absolute;margin-left:75%;" />
+                      <img style="height:150px;margin-left:60px;margin-top:-20px;" src="png/recebe.png"  />
+                    </div>
+                    <div class="col-md-4">
+                      <div style="background-color:white;color:black;width:100%;height:100%">
+                        <h1 align="center">Clientes</h1>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                    <div class="col-md-4">
+                      <div style="background-color:white;color:black;width:100%;height:100%;opacity:1;">
+                        <h1 align="center">Clientes</h1>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <input id="c1" align="left" style="width:30px;color:black;" />
+                      <input id="c2" align="left" style="width:30px;color:black;position:absolute;margin-left:75%;" />
+                      <img style="height:150px;margin-left:60px;margin-top:-20px;" src="png/compra.png"  />
+                    </div>
+                    <div class="col-md-4">
+                      <div style="background-color:white;color:black;width:100%;height:100%">
+                        <h1 align="center">Produtos</h1>
+                      </div>
+                    </div>
+
+
+
+                    <div class="row" style="margin-left:120px;" id="form3" >
+                      <!--<button class="btn btn-danger col col-md-2 col-md-offset-5">Cancelar</button>-->
+                      <button class="btn btn-primary col-md-10"  id="submit3">Enviar</button>
+                      <a href="#t5" class="btn btn-success col-md-10" style="color:white;"  id="next3" hidden>Enviar</a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-10" align="center" style="margin-top:500px;" >
+                    <button class="btn-success iniciar" id="go3">iniciar</button>
+                </div>
+                </section>
+
+                </div>
+              <div class="page" id="p5">
+                <section>
+                      <div id="question4" class="col-md-10 question" hidden>
+                            <h1 align="center">4 Desafio</h1>
+                            <h3>Leia o texto a seguir.</h3>
+                            <h4 id="txt-1" align="justify">Uma Floricultura deseja informatizar suas operações. Inicialmente deseja manter um cadastro de
+                              todos os seus clientes, mantendos informações como: RG, nome, telefone e endereço. Deseja também manter um cadastro contendo
+                              informações sobre Produtos que vende, tais como: nome do produto, tipo(flor, vaso, planta,....), preço quantidade em estoque.
+                              Quando um cliente faz uma compra, a mesma é armazenada, mantendo informação sobre o cliente que fez a compra, a data da compra
+                              o valor total e os produtos comprados.
+                            </h4>
+
+                            <h3>Com base no texto resonda as seguintes questões.</h3>
+                            <h3>A)Indentique as entidades no texto.
+                              <button class="fa fa-angle-right"
+                              style="background-color:black;border-radius:10px;margin-left:5px;"
+                              id="plusAD" aria-hidden="true"
+                              data-status="close">
+                              </button>
+                            </h3>
+                            <div id="desafio4A" hidden>
+                              Adicione as entidades encontradas.
+                              <p><input type="text" id="entidadeField" style="color:black;"/><button id="plusEntidade" class="btn btn-primary" style="margin-left:10px;border-radius:20px"><b>+</b></button></p>
+                              <div id="labelX">
+
+                              </div>
+                              <p id="desbloqueioA" hidden>Questão B desbloqueada !</p>
+                            </div>
+                            <h3>B)Indentique os relacionamentos entre as entidades.<button id="plusRelacionamento" data-status="close" class="fa fa-angle-right" style="background-color:black;border-radius:10px;margin-left:5px;" id="plusAD" aria-hidden="true"></button></h3>
+
+                            <div id="desafio4B" hidden>
+                              <p id="block">Desbloqueie essa questao respondendo a letra A</p>
+                              <div id="question4B"  style="color:black" hidden>
+                                  <div class="col-md-4">
+                                    <input type="text" name="" value="FLORICULTURA" disabled="on">
+                                  </div>
+                                  <div class="col-md-4">
+                                    <select id="qst4BA">
+                                      <option selected>opções</option>
+                                      <option value="solicita">SOLICITA</option>
+                                      <option value="cadastra">CADASTRA</option>
+                                      <option value="realiza">REALIZA</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <input type="text" name="" value="ClIENTE" disabled="on">
+                                  </div>
+                                  <p>
+                                    .
+                                  </p>
+                                  <div class="col-md-4">
+                                    <input type="text" name="" value="CLIENTE" disabled="on">
+                                  </div>
+                                  <div class="col-md-4">
+                                    <select id="qst4BB">
+                                      <option selected>opções</option>
+                                      <option value="realiza">REALIZA</option>
+                                      <option value="cadastra">CADASTRA</option>
+                                      <option value="solicita">SOLICITA</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <input type="text" name="" value="PEDIDO" disabled="on">
+                                  </div>
+                                  <p>
+                                    .
+                                  </p>
+                                  <div class="col-md-4">
+                                    <input type="text" name="" value="CLIENTE" disabled="on">
+                                  </div>
+                                  <div class="col-md-4">
+                                    <select id="qst4BC">
+                                      <option selected>opções</option>
+                                      <option value="cadastra">CADASTRA</option>
+                                      <option value="solicita">SOLICITA</option>
+                                      <option value="realiza">REALIZA</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <input type="text" name="" value="PRODUTO" disabled="on">
+                                  </div>
+                                  <p>
+                                    .
+                                  </p>
+                                  <div class="row" style="margin-left:100px;" id="form4" >
+                                    <!--<button class="btn btn-danger col col-md-2 col-md-offset-5">Cancelar</button>-->
+                                    <button class="btn btn-primary col-md-10"  id="submit4">Enviar</button>
+                                    <a href="#t6" class="btn btn-success col-md-10" style="color:white;"  id="next4" hidden>Enviar</a>
+
+                                  </div>
+
+                              </div>
+                            </div>
+
+
+                      </div>
+
+                </section>
+                <div class="col-md-10" align="center" style="margin-top:500px;" >
+                    <button class="btn-success iniciar" id="go4">iniciar</button>
+                </div>
+              </div>
+              <div class="page" id="p6">
+                <section>
+                  <div id="question5" class="col-md-10 question" style="margin-top:0px;" hidden>
+                    <h1 align="center">Questão 5</h1>
+                      <h3 >Dados as modelagens a baixo, aloque os atributos nas entidades a qual pertencem:</h3>
+
+
+                            <img src="png/modelagem5C" class="col-md-10" style="margin-left:80px;" />
+                            <div class="col-md-6">
+                                <h2 align="center"></h2>
+                            </div>
+                            <div class="col-md-6">
+                              <h3 align="center"></h3>
+                            </div>
+                            <div class="col-md-6" id="clienteLabel"  style="border: 1px solid white;border-radius: 0px;height:200px;border-width:0px 1px 0px 0px;" ondrop="drop(event)" ondragover="allowDrop(event)">
+                              <h3 align="center"></h3>
+
+
+                                  <img src="png/atrrTelefone" style="width:100px;" meta-child="cliente" id="attrTel" draggable="true" ondragstart="drag(event)"/>
+                                  <img src="png/atrrValor" style="width:100px;" meta-child="cliente" id="attrVal" draggable="true" ondragstart="drag(event)"/>
+                                  <img src="png/atrrIdade" style="width:100px;" meta-child="cliente" id="attrAge" draggable="true" ondragstart="drag(event)"/>
+                                  <img src="png/atrrCodigo" style="width:100px;" meta-child="cliente" id="attrCod" draggable="true" ondragstart="drag(event)"/>
+
+
+                            </div>
+
+                            <div class="col-md-6" id="emprestimoLabel"  style="border: 1px solid white;border-radius: 0px;height:200px;border-width:0px 0px 0px 1px;margin-bottom:10px;"  ondrop="drop(event)" ondragover="allowDrop(event)">
+                              <h3 align="center"></h3>
+
+                                    <img src="png/atrrNome" style="width:100px;" meta-child="emprestimo" id="attrNome" draggable="true" ondragstart="drag(event)" ondrop="erro(event)" />
+                                    <img src="png/atrrDTnas" style="width:100px;" meta-child="emprestimo" id="attrNas" draggable="true" ondragstart="drag(event)"/>
+                                    <img src="png/atrrDTempr" style="width:100px;" meta-child="emprestimo" id="attrEmpr" draggable="true" ondragstart="drag(event)"/>
+
+
+                            </div>
+                            <div class="row" style="margin-left:100px;margin-top:10px;" id="form5" >
+                              <!--<button class="btn btn-danger col col-md-2 col-md-offset-5">Cancelar</button>-->
+                              <button class="btn btn-primary col-md-10"  id="submit5">Enviar</button>
+                              <a href="#t7" class="btn btn-success col-md-10" style="color:white;"  id="next5" hidden>Enviar</a>
+
+                            </div>
+                      </div>
+
+                </section>
+                <div class="col-md-10" align="center" style="margin-top:500px;" >
+                    <button class="btn-success iniciar" id="go5">iniciar</button>
+                </div>
+              </div>
+              <div class="page" id="p7">
+
+                <section>
+
+                  <div id="question6" class="col-md-10"
+                  style="background-color:rgb(000,0,0);opacity:0.9;margin: 10px 150px 100px 80px;border-radius:10px;padding-bottom:10px;" hidden>
+                    <h1 style="position:absolute;margin-left:18%;margin-top:28.6%;">_____________________________________________</h1>
+                    <h1 style="position:absolute;margin-left:18%;margin-top:41.6%;">_____________________________________________</h1>
+                    <h1 align="center">Questão 5</h1>
+                      <h3 >Monte o diagramaER do problema a seguir;</h3>
+                      <h3 align="justify">Quero criar um banco de dados para organizar meus CD´s. Sendo que Um cd possui
+                          diversas musicas, e varios albums pertencem a uma banda.
+                       </h3>
+
+                       <div class="col-md-12" id="clienteLabel" align="center"  style="border: 1px solid white;border-radius: 50px;height:100px;" ondrop="drop(event)" ondragover="allowDrop(event)">
+                         <img src="png/entidadeCD"    style="width:120px;z-index:3;" meta-child="" id="entCD" draggable="true" ondragstart="drag(event)" ondrop="erro(event)" />
+                         <img src="png/entidadeAlbum" style="width:120px;z-index:3;" meta-child="" id="entAlbum" draggable="true" ondragstart="drag(event)" ondrop="erro(event)" />
+                         <img src="png/entidadeArtista" style="width:120px;z-index:3;" meta-child="" id="entArtista" draggable="true" ondragstart="drag(event)" ondrop="erro(event)" />
+                         <img src="png/pertenceRelacio" style="width:120px;z-index:3;" meta-child="" id="relPertence" draggable="true" ondragstart="drag(event)" ondrop="erro(event)" />
+                         <img src="png/entidadeMusica" style="width:120px;z-index:3;" meta-child="" id="entMusica" draggable="true" ondragstart="drag(event)" ondrop="erro(event)" />
+                         <img src="png/possuiRelacio" style="width:120px;z-index:3;" meta-child="" id="relPossui" draggable="true" ondragstart="drag(event)" ondrop="erro(event)" />
+
+
+                       </div>
+                       <!-- label 1 -->
+
+                      <div class="col-md-4" id="field6A"  style="border: 0px solid white;border-radius: 100px;height:150px;padding-left:100px;" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <h3 align="center"></h3>
+
+
+
+
+                      </div>
+
+                      <div class="col-md-4" id="field6B"  style="border: 0px solid white;border-radius:100px;height:150px;padding-left:100px;" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <h3 align="center"></h3>
+
+
+
+
+                      </div>
+                      <div class="col-md-4" id="field6C"  style="border: 0px solid red;border-radius: 0px;height:150px;padding-left:100px;" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <h3 align="center"></h3>
+
+
+
+
+                      </div>
+
+                      <!-- label 2 -->
+
+                     <div class="col-md-4" id="field6D"  style="border: 0px solid red;border-radius: 0px;height:150px;padding-left:100px;" ondrop="drop(event)" ondragover="allowDrop(event)">
+                       <h3 align="center"></h3>
+
+
+
+                     </div>
+
+                     <div class="col-md-4" id="field6E"  style="border: 0px solid red;border-radius: 0px;height:150px;padding-left:100px;" ondrop="drop(event)" ondragover="allowDrop(event)">
+                       <h3 align="center"></h3>
+
+
+
+
+                     </div>
+                     <div class="col-md-4" id="field6F"  style="border: 0px solid red;border-radius: 0px;height:150px;padding-left:100px;" ondrop="drop(event)" ondragover="allowDrop(event)">
+                       <h3 align="center"></h3>
+
+
+
+
+                     </div>
+
+
+                     <div class="row" style="margin-left:100px;margin-top:10px;" id="form6" >
+                       <!--<button class="btn btn-danger col col-md-2 col-md-offset-5">Cancelar</button>-->
+                       <button class="btn btn-primary col-md-10"  id="submit6">Enviar</button>
+                       <a href="#t6" class="btn btn-success col-md-10" style="color:white;"  id="next5" hidden>Enviar</a>
+
+                     </div>
+
+                    </div>
+
+                </section>
+                <div class="col-md-10" align="center" style="margin-top:500px;" >
+                    <button class="btn-success iniciar" id="go6">iniciar</button>
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal qst1 -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" style="color:black;"></h4>
+          </div>
+          <div class="modal-body">
+            <h4 style="color:black;" align="justify">O modelo Entidade Relacionamento propõe projetos de banco de dados dando uma nova e
+              importante percepção dos conceitos de um modelo de dados. Assim, como as linguagens de alto nível,
+              a modelagem ER possibilita ao projetista concentrar-se apenas na utilização dos dados, sem se preocupar com estrutura lógica de tabelas.</h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Entendi</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <!-- fim -->
+
+  <!-- Modal qst2 -->
+    <div id="myModal2" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" style="color:black;"></h4>
+          </div>
+          <div class="modal-body">
+            <h4 style="color:black;" align="justify">
+               O Diagrama Entidade Relacionamento descreve a estrutura lógica geral de um banco de dados
+               de maneira sistemática. O processo é modelado como componentes (entidades) que são ligadas umas nas outras
+               por relacionamentos que expressam as dependências e exigências entre elas.
+             </h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Entendi</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <!-- fim -->
+
+  <!-- Modal qst3 -->
+    <div id="myModal3" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" style="color:black;"></h4>
+          </div>
+          <div class="modal-body">
+            <h4 style="color:black;" align="justify">
+              Os relacionamentos em geral são nomeados com verbos ou expressões que representam a forma como as entidades interagem,
+              ou a ação que uma exerce sobre a outra. Essa nomenclatura pode variar de acordo com a direção em que se lê o relacionamento.
+              Por exemplo: um autor escreve vários livros, enquanto um livro é escrito por vários autores.
+             </h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Entendi</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <!-- fim -->
+
+  <!-- Modal qst4 -->
+    <div id="myModal4" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" style="color:black;"></h4>
+          </div>
+          <div class="modal-body">
+            <h4 style="color:black;" align="justify">
+            As entidades podem ser classificadas como físicos ou lógicos, de acordo sua existência no mundo real
+            e são nomeadas com substantivos concretos ou abstratos que representem de forma clara sua função dentro do domínio.
+            Exemplos práticos de entidades comuns em vários sistemas são Cliente, Produto, Venda, Turma, Função, entre outros.
+             </h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Entendi</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <!-- fim -->
+
+  <!-- Modal qst5 -->
+    <div id="myModal5" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" style="color:black;"></h4>
+          </div>
+          <div class="modal-body">
+            <h4 style="color:black;" align="justify">
+              Atributos são as características que descrevem cada entidade dentro do domínio. Durante a análise de requisitos,
+              são identificados os atributos relevantes de cada entidade naquele contexto, de forma a manter o modelo o mais
+              simples possível e consequentemente armazenar apenas as informações que serão úteis futuramente.
+             </h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Entendi</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <!-- fim -->
+
+  <!-- Modal qst6 -->
+    <div id="myModal6" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" style="color:black;"></h4>
+          </div>
+          <div class="modal-body">
+            <h4 style="color:black;" align="justify">
+              Em sua notação original, proposta por Peter Chen (idealizador do modelo e do diagrama), as entidades
+              deveriam ser representadas por retângulos, seus atributos por elipses e os relacionamentos por losangos,
+              ligados às entidades por linhas. Porém, notações mais modernas abandonaram o uso de elipses para atributos e
+              passaram a utilizar o formato mais utilizado na UML, em que os atributos já aparecem listados na própria entidade.
+              Essa forma torna o diagrama mais limpo e fácil de ser lido.
+             </h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Entendi</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <!-- fim -->
+
+  <!-- Modal qst6 -->
+    <div id="modalGameOver" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" style="color:black;"></h4>
+          </div>
+          <div class="modal-body">
+            <h4 style="color:black;" align="justify">
+              <video  id="videoOver" style="width:100%;height:auto;" controls>
+                 <source src="videos/gameover" type="video/mp4" >
+              </video>
+            </h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button"  class="btn btn-danger" id="restart"  data-dismiss="modal">Recomeçar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <!-- fim -->
+
+
+  <!-- Modal qst6 -->
+    <div id="modalWin" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" style="color:black;"></h4>
+          </div>
+          <div class="modal-body">
+            <h4 style="color:black;" align="justify">
+              <video  id="videoWin" style="width:100%;height:auto;" controls>
+                 <source src="videos/win" type="video/mp4" >
+              </video>
+            </h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button"  class="btn btn-danger" id="restart"  data-dismiss="modal">Recomeçar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <!-- fim -->
+
+
+
+
+
+</div>
+
+
+
+    <script>
+
+        var life = 5;
+
+
+
+      var myVideo = document.getElementById("video1");
+
+       function playPause() {
+          if (myVideo.paused)
+              myVideo.play();
+          else
+              myVideo.pause();
+       }
+
+
+        function allowDrop(ev)
+        {
+          ev.preventDefault();
+        }
+
+        function drag(ev)
+        {
+          ev.dataTransfer.setData("text", ev.target.id);
+
+        }
+
+        function drop(ev)
+        {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          console.log(data);
+          atual = document.getElementById(data);
+          console.log(atual.getAttribute('meta-child'));
+
+          ev.target.appendChild(document.getElementById(data));
+          var target = ev.target.id;
+          console.log(target);
+
+          if(target == 'emprestimoLabel'){
+
+              atual.setAttribute('meta-child', 'emprestimo');
+              console.log(atual.getAttribute('meta-child'));
+
+          }else if (target == 'clienteLabel') {
+
+              atual.setAttribute('meta-child', 'cliente');
+              console.log(atual.getAttribute('meta-child'));
+
+          }else if (target == 'field6B' || target == 'field6E' ) {
+
+              atual.setAttribute('meta-child', 'relacionamento');
+              console.log(atual.getAttribute('meta-child'));
+
+          }else if(target == 'field6A'  || target == 'field6C' || target == 'field6D' || target == 'field6F' ) {
+
+              atual.setAttribute('meta-child', 'entidade');
+              console.log(atual.getAttribute('meta-child'));
+
+          }
+
+
+        }
+
+
+        function erro(ev)
+        {
+            alert('você não pode arrastar um atributo a outro');
+            location.reload();
+        }
+
+
+  $(function($){
+
+
+
+
+        /* contagem de lifePoints */
+        var howLife = function (life) {
+
+              if(life == 5){
+
+                $('#life1').show();
+                $('#life2').show();
+                $('#life3').show();
+                $('#life4').show();
+                $('#life5').show();
+
+              }
+
+              if (life == 4){
+                  $('#life1').hide();
+              }
+
+              if (life == 3){
+                  $('#life1').hide();
+                  $('#life2').hide();
+              }
+
+              if (life == 2){
+                  $('#life1').hide();
+                  $('#life2').hide();
+                  $('#life3').hide();
+              }
+
+              if (life == 1){
+                  $('#life1').hide();
+                  $('#life2').hide();
+                  $('#life3').hide();
+                  $('#life4').hide();
+              }
+
+              if(life == 0){
+
+                  $('#modalGameOver').modal('show');
+              }
+
+
+
+        }
+
+
+
+
+
+        $('#restart').click(function () {
+
+
+              life = 5;
+              howLife(life);
+
+        })
+
+
+
+        /*Funcção da primeira questão.*/
+
+    $('#submit1').click(function () {
+
+
+          if (document.getElementById("check1").checked == true
+              && document.getElementById("check2").checked == true
+              && document.getElementById("check4").checked == true
+              && document.getElementById("check6").checked == true
+              && document.getElementById("check1").checked == true
+              && document.getElementById("check7").checked == true  ) {
+
+
+            console.log("Passou do teste");
+            $('#myModal').modal('show');
+            $('#submit1').removeClass("btn-danger");
+            $('#submit1').addClass("btn-primary");
+            $('#submit1').text("Resposta Correta !");
+            //$('#form1').append("<button class='btn btn-success col-md-10'></button>");
+            $('#next1').show();
+
+
+          }else{
+            console.log("Não passou do teste");
+            $('#submit1').addClass("btn-danger");
+            $('#submit1').text("Tente outra vez");
+            life -= 1;
+            console.log(life);
+            howLife(life);
+          }
+
+      })
+
+        /*função da 2 questao*/
+        $('#submit2').click(function () {
+
+          console.log('teste');
+          var qst1 = $('#qst1').val();
+          var qst2 = $('#qst2').val();
+          var qst3 = $('#qst3').val();
+          var qst4 = $('#qst4').val();
+          var qst5 = $('#qst5').val();
+          var qst6 = $('#qst6').val();
+          var qstNv1 = $('#qstNv1').val();
+          var qstNv2 = $('#qstNv2').val();
+
+          if(qst1 == 'relacionamento' &&
+              qst2 =='entidade' &&
+              qst3 == 'atributo'&&
+              qst4 == 'especializacao'&&
+              qst5 == 'atributoChave'&&
+              qst6 == 'entidadeAssoc' &&
+              qstNv1 == 'atributoMulti' &&
+              qstNv2 == 'dependencia'){
+
+                  $('#myModal2').modal('show');
+                  console.log("Passou do teste");
+                  $('#submit2').removeClass("btn-danger");
+                  $('#submit2').addClass("btn-primary");
+                  $('#submit2').text("Resposta Correta !");
+                  //$('#form1').append("<button class='btn btn-success col-md-10'></button>");
+                  $('#next2').show();
+
+              }else{
+
+                console.log("Não passou do teste");
+                $('#submit2').addClass("btn-danger");
+                $('#submit2').text("Tente outra vez");
+                life -= 1;
+                console.log(life);
+                howLife(life);
+
+              }
+
+        })
+
+
+        /*função da 3 questao*/
+        $('#submit3').click(function () {
+
+              a1 = $('#a1').val();
+              a2 = $('#a2').val();
+              b1 = $('#b1').val();
+              b2 = $('#b2').val();
+              c1 = $('#c1').val();
+              c2 = $('#c2').val();
+
+              if(a1 == 1
+                && a2 == 1
+                && b1 == 1
+                && b2 == 'n'
+                && c1 == 'n'
+                && c2 == 'n'){
+                console.log('ok');
+
+                $('#myModal3').modal('show');
+                console.log("Passou do teste");
+                $('#submit3').removeClass("btn-danger");
+                $('#submit3').addClass("btn-primary");
+                $('#submit3').text("Resposta Correta !");
+                //$('#form1').append("<button class='btn btn-success col-md-10'></button>");
+                $('#next3').show();
+
+                console.log('a1:'+a1+'\n'+
+                            'a2:'+a2+'\n'+
+                            'b1:'+b1+'\n'+
+                            'b2:'+b2+'\n'+
+                            'c1:'+c1+'\n'+
+                            'c2:'+c2+'\n')
+
+
+              }else{
+
+                console.log("Não passou do teste");
+                $('#submit3').addClass("btn-danger");
+                $('#submit3').text("Tente outra vez");
+
+                console.log('a1:'+a1+'\n'+
+                            'a2:'+a2+'\n'+
+                            'b1:'+b1+'\n'+
+                            'b2:'+b2+'\n'+
+                            'c1:'+c1+'\n'+
+                            'c2:'+c2+'\n')
+
+                            life -= 1;
+                            console.log(life);
+                            howLife(life);
+
+              }
+
+
+
+        })
+
+
+          /*---------------Questao 4-------------*/
+          $('#plusAD').click(function () {
+
+            var status = $(this).data('status');
+
+            switch (status) {
+              case 'close':
+
+                $('#desafio4A').show();
+                $(this).data('status', 'open');
+                break;
+              case 'open':
+
+                $('#desafio4A').hide();
+                $(this).data('status', 'close');
+              break;
+
+
+              default:
+
+            }
+          })
+
+            var desblock = 0;
+            var entidades = [];
+            $('#plusEntidade').click(function () {
+
+
+              var entidadeField = $('#entidadeField').val();
+              entidadeField.toLowerCase();
+
+              if(entidadeField == 'floricultura' || entidadeField == 'produtos'  || entidadeField == 'clientes'){
+
+                  if(entidades.length < 1){
+                      entidades.push(entidadeField);
+                      $('#labelX').append('<h2>'+entidadeField+'</h2>');
+                      for (var i = 0; i < entidades.length; i++) {
+                         console.log('['+i+']'+entidades[i]);
+                      }
+                  }else{
+                      console.log('else');
+
+                      var existe = 0;
+                      console.log('existe>' + existe);
+
+                      for (var i = 0; i < entidades.length; i++) {
+
+                            if(entidadeField == entidades[i]){
+                                console.log('entidadeField:'+entidadeField+'\n entidade['+i+']:'+entidades[i]);
+                                existe = 1;
+                            }
+                      }
+
+                      if(existe == 0){
+                        entidades.push(entidadeField);
+                        $('#labelX').append('<h2>'+entidadeField+'</h2>');
+                      }else if (existe == 1) {
+                          alert('Entidade ja cadastrada');
+                      }
+
+                      if(entidades.length == 3){
+                        alert('Questão B desbloqueada')
+                        $('#desbloqueioA').show();
+                        $('#block').hide();
+                        $('#desafio4A').hide();
+                        $('#question4B').show();
+                      }
+
+                  }
+
+                }else{
+                alert("essa entidade não pertence ao texto");
+              }
+
+            })
+
+              $('#plusRelacionamento').click(function () {
+
+                var status = $(this).data('status');
+
+                switch (status) {
+                  case 'close':
+
+                    $('#desafio4B').show();
+                    $(this).data('status', 'open');
+                    break;
+                  case 'open':
+
+                    $('#desafio4B').hide();
+                    $(this).data('status', 'close');
+                  break;
+
+
+                  default:
+
+                }
+
+
+              })
+
+    $('#submit4').click(function () {
+
+             var qst1 = $('#qst4BA').val();
+             var qst2 = $('#qst4BB').val();
+             var qst3 = $('#qst4BC').val();
+
+             if(qst1 == 'cadastra' && qst2 == 'solicita' && qst3 == 'realiza'){
+
+                $('#myModal4').modal('show');
+                console.log("Passou do teste");
+                $('#submit4').removeClass("btn-danger");
+                $('#submit4').addClass("btn-primary");
+                $('#submit4').text("Resposta Correta !");
+                //$('#form1').append("<button class='btn btn-success col-md-10'></button>");
+                $('#next4').show();
+
+            }else{
+
+              console.log("Não passou do teste");
+              $('#submit4').addClass("btn-danger");
+              $('#submit4').text("Tente outra vez");
+
+            }
+
+
+          })
+
+    $('#submit5').click(function () {
+
+            var attrNome = document.getElementById('attrNome');
+            var attrTelefone = document.getElementById('attrTel');
+            var attrValor = document.getElementById('attrVal');
+            var attrIdade = document.getElementById('attrAge');
+            var attrCodigo = document.getElementById('attrCod');
+            var attrNascimento = document.getElementById('attrNas');
+            var attrCodEmpre = document.getElementById('attrEmpr');
+
+            if(attrNome.getAttribute('meta-child') == 'cliente'
+              && attrIdade.getAttribute('meta-child') == 'cliente'
+              && attrNascimento.getAttribute('meta-child') == 'cliente'
+              && attrTelefone.getAttribute('meta-child') == 'cliente'
+              && attrValor.getAttribute('meta-child') == 'emprestimo'
+              && attrCodigo.getAttribute('meta-child') == 'emprestimo'
+              && attrCodEmpre.getAttribute('meta-child') == 'emprestimo')
+            {
+
+                  $('#myModal5').modal('show');
+                  $('#submit5').removeClass("btn-danger");
+                  $('#submit5').addClass("btn-primary");
+                  $('#submit5').text("Resposta Correta !");
+                  //$('#form1').append("<button class='btn btn-success col-md-10'></button>");
+                  $('#next5').show();
+
+
+            }else{
+
+              console.log("Não passou do teste");
+              $('#submit5').addClass("btn-danger");
+              $('#submit5').text("Tente outra vez");
+              life -= 1;
+              console.log(life);
+              howLife(life);
+
+            }
+
+
+      })
+
+
+        /*-------------------questao 6------------------------------*/
+
+
+    $('#submit6').click(function (e) {
+
+        e.preventDefault();
+        $('#question6').addClass('journal');
+        console.log('teste');
+        var entidadeCD = document.getElementById('entCD').getAttribute('meta-child');
+        var entidadeAlbum = document.getElementById('entAlbum').getAttribute('meta-child');
+        var entidadeArtista = document.getElementById('entArtista').getAttribute('meta-child');
+        var entidadeMusica = document.getElementById('entMusica').getAttribute('meta-child');
+        var relPossui = document.getElementById('relPossui').getAttribute('meta-child');
+        var relPertence = document.getElementById('relPertence').getAttribute('meta-child');
+
+        if( entidadeCD == 'entidade'
+            && entidadeAlbum == 'entidade'
+            && entidadeMusica == 'entidade'
+            && entidadeArtista == 'entidade'
+            && relPossui == 'relacionamento'
+            && relPertence == 'relacionamento'){
+
+          $('#modalWin').modal('show');
+
+          $('#submit6').removeClass("btn-danger");
+          $('#submit6').addClass("btn-primary");
+          $('#submit6').text("Resposta Correta !");
+          //$('#form1').append("<button class='btn btn-success col-md-10'></button>");
+          $('#next6').show();
+        }else {
+
+                console.log("Não passou do teste");
+                $('#submit6').addClass("btn-danger");
+                $('#submit6').text("Tente outra vez");
+                life -= 1;
+                console.log(life);
+                howLife(life);
+        }
+
+
+
+
+        })
+
+
+
+
+
+
+        /*-------------------------------------------------------------*/
+
+
+
+
+          $('#go1').click(function (e) {
+
+            console.log('teste');
+            e.preventDefault();
+            $('#question1').addClass('journal');
+            $('#question1').show();
+            $('#labelPlay').hide();
+
+
+          })
+
+
+          $('#go2').click(function (e) {
+
+            console.log('teste');
+            e.preventDefault();
+            $('#question2').addClass('journal');
+            $('#question2').show();
+
+
+          })
+
+
+          $('#go3').click(function (e) {
+
+            console.log('teste');
+            e.preventDefault();
+            $('#question3').addClass('journal');
+            $('#question3').show();
+
+
+          })
+
+
+          $('#go4').click(function (e) {
+
+            console.log('teste');
+            e.preventDefault();
+            $('#question4').addClass('journal');
+            $('#question4').show();
+
+
+          })
+
+
+          $('#go5').click(function (e) {
+
+            console.log('teste');
+            e.preventDefault();
+            $('#question5').addClass('journal');
+            $('#question5').show();
+
+
+          })
+
+
+
+          $('#go6').click(function (e) {
+
+            console.log('teste');
+            e.preventDefault();
+            $('#question6').addClass('journal');
+            $('#question6').show();
+
+
+          })
+
+
+          $('#startGame').click(function (e) {
+
+            console.log('teste1');
+            console.log(life);
+            e.preventDefault();
+            $('#startGame').hide();
+            $('#welcome').hide();
+            $('#welcome2').hide();
+            $('#video1').show();
+            $('#menu').show();
+            $('#life').show();
+            $('#labelPlay').show();
+            $('#p1').css('background-color', '#B0BEC6');
+            $('#p1').css('background-image', 'none');
+            $('#t1').css('background-color', '#B0BEC6');
+          })
+
+
+
+
+
+
+
+        });
+
+
+
+
+    </script>
+
+</body>
+</html>
